@@ -32,7 +32,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DashedDEV\\NumpadField\\": "src/"
+            "DashedDEV\\FilamentNumpadField\\": "src/"
         }
     },
     "scripts": {
@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "DashedDEV\\NumpadField\\NumpadFieldServiceProvider"
+                "DashedDEV\\FilamentNumpadField\\NumpadFieldServiceProvider"
             ]
         }
     },

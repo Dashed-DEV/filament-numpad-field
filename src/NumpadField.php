@@ -8,7 +8,7 @@ use Filament\Schemas\Components\Utilities\Set;
 
 class NumpadField extends Field
 {
-    protected string $view = 'dashed-core::fields.numpad';
+    protected string $view = 'filament-numpad-field::numpad';
 
     /** Config */
     protected bool $storesCents = false;        // DB als euro's (DECIMAL) = false, als centen (INT) = true

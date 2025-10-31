@@ -32,8 +32,11 @@ NumpadField::make('price')
     ->label('Prijs')
     ->minCents(0)
     ->maxCents(100000);
+```
 
-
+Add below to your custom theme
+```php
+@source '../../../../vendor/dashed/**/*.blade.php';
 ```
 
 ## Changelog

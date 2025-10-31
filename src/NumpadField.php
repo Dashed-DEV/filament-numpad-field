@@ -12,20 +12,72 @@ class Numpad extends Field
 
     /** Config */
     protected bool $storesCents = false;        // DB als euro's (DECIMAL) = false, als centen (INT) = true
+
     protected string $currencySymbol = '€';
+
     protected bool $allowNegative = false;
+
     protected ?int $minCents = 0;
+
     protected ?int $maxCents = null;
+
     protected ?string $displayLabel = null;
 
-    public function currency(string $symbol): static { $this->currencySymbol = $symbol; return $this; }
-    public function storesCents(bool $value = false): static { $this->storesCents = $value; return $this; }
-    public function allowNegative(bool $value = true): static { $this->allowNegative = $value; return $this; }
-    public function minEuro(float|int $euros): static { $this->minCents = (int) round($euros * 100); return $this; }
-    public function maxEuro(float|int $euros): static { $this->maxCents = (int) round($euros * 100); return $this; }
-    public function minCents(?int $cents): static { $this->minCents = $cents; return $this; }
-    public function maxCents(?int $cents): static { $this->maxCents = $cents; return $this; }
-    public function displayLabel(?string $label): static { $this->displayLabel = $label; return $this; }
+    public function currency(string $symbol): static
+    {
+        $this->currencySymbol = $symbol;
+
+        return $this;
+    }
+
+    public function storesCents(bool $value = false): static
+    {
+        $this->storesCents = $value;
+
+        return $this;
+    }
+
+    public function allowNegative(bool $value = true): static
+    {
+        $this->allowNegative = $value;
+
+        return $this;
+    }
+
+    public function minEuro(float | int $euros): static
+    {
+        $this->minCents = (int) round($euros * 100);
+
+        return $this;
+    }
+
+    public function maxEuro(float | int $euros): static
+    {
+        $this->maxCents = (int) round($euros * 100);
+
+        return $this;
+    }
+
+    public function minCents(?int $cents): static
+    {
+        $this->minCents = $cents;
+
+        return $this;
+    }
+
+    public function maxCents(?int $cents): static
+    {
+        $this->maxCents = $cents;
+
+        return $this;
+    }
+
+    public function displayLabel(?string $label): static
+    {
+        $this->displayLabel = $label;
+
+        return $this;
+    }
 
     protected function setUp(): void
     {
@@ -44,6 +96,7 @@ class Numpad extends Field
                 // Intern centen-int
                 if ($state === null || $state === '') {
                     $set($this->getStatePath(), 0);
+
                     return;
                 }
                 // "12.34" → 1234 (als iemand euro-string in DB had)
@@ -63,6 +116,7 @@ class Numpad extends Field
                 // entangled = centen (int)
                 return (int) ($state ?? 0);
             }
+
             // entangled = euro's (string/float). Laat zo.
             return is_numeric($state) ? round((float) $state, 2) : 0.00;
         });
@@ -107,12 +161,12 @@ class Numpad extends Field
     public function getViewData(): array
     {
         return array_merge(parent::getViewData(), [
-            'storesCents'    => $this->storesCents,
+            'storesCents' => $this->storesCents,
             'currencySymbol' => $this->currencySymbol,
-            'allowNegative'  => $this->allowNegative,
-            'minCents'       => $this->minCents,
-            'maxCents'       => $this->maxCents,
-            'displayLabel'   => $this->displayLabel ?? $this->getLabel(),
+            'allowNegative' => $this->allowNegative,
+            'minCents' => $this->minCents,
+            'maxCents' => $this->maxCents,
+            'displayLabel' => $this->displayLabel ?? $this->getLabel(),
         ]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace DashedDEV\NumpadField;
+namespace DashedDEV\FilamentNumpadField;
 
 use DashedDEV\NumpadField\Commands\NumpadFieldCommand;
 use Filament\Support\Assets\AlpineComponent;

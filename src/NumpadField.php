@@ -1,12 +1,12 @@
 <?php
 
-namespace DashedDEV\FilamentNumpadField\NumpadField;
+namespace DashedDEV\FilamentNumpadField;
 
 use Closure;
 use Filament\Forms\Components\Field;
 use Filament\Schemas\Components\Utilities\Set;
 
-class Numpad extends Field
+class NumpadField extends Field
 {
     protected string $view = 'dashed-core::fields.numpad';
 
